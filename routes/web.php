@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.main');
 });
 Route::group(['namespace'=>'App\Http\Controllers\Product'],function (){
     Route::get('/product','IndexController')->name('product.index');
 });
+
+//admin
+Route::get('/admin', 'App\Http\Controllers\Admin\IndexController');
