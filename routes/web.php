@@ -20,4 +20,12 @@ Route::group(['namespace'=>'App\Http\Controllers\Product'],function (){
 });
 
 //admin
-Route::get('/admin', 'App\Http\Controllers\Admin\IndexController');
+Route::group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],function (){
+    Route::get('/','IndexController')->name('admin.index');
+
+    Route::group(['namespace'=>'Category','prefix'=>'category'],function (){
+        Route::get('/','IndexController')->name('admin.category.index');
+        Route::get('/create','CreateController')->name('admin.category.create');
+        Route::post('/','StoreController')->name('admin.category.store');
+    });
+});

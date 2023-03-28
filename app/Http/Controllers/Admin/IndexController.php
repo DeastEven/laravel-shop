@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function __invoke(){
-        return view('admin.main');
+        return view('admin.layout.main');
     }
 }
