@@ -15,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.main');
 });
-Route::group(['namespace'=>'App\Http\Controllers\Product'],function (){
-    Route::get('/product','IndexController')->name('product.index');
-});
 
 //admin
 Route::group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],function (){
@@ -27,5 +24,18 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],funct
         Route::get('/','IndexController')->name('admin.category.index');
         Route::get('/create','CreateController')->name('admin.category.create');
         Route::post('/','StoreController')->name('admin.category.store');
+        Route::get('/{category}','ShowController')->name('admin.category.show');
+        Route::get('/{category}/edit','EditController')->name('admin.category.edit');
+        Route::patch('/{category}','UpdateController')->name('admin.category.update');
+        Route::delete('/{category}','DeleteController')->name('admin.category.delete');
+    });
+    Route::group(['namespace'=>'Product','prefix'=>'product'],function (){
+        Route::get('/','IndexController')->name('admin.product.index');
+        Route::get('/create','CreateController')->name('admin.product.create');
+        Route::post('/','StoreController')->name('admin.product.store');
+        Route::get('/{product}','ShowController')->name('admin.product.show');
+        Route::get('/{product}/edit','EditController')->name('admin.product.edit');
+        Route::patch('/{product}','UpdateController')->name('admin.product.update');
+        Route::delete('/{product}','DeleteController')->name('admin.product.delete');
     });
 });

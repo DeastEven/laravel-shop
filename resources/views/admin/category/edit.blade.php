@@ -7,15 +7,17 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-12">
-                    <h1 class="m-0">Добавить категорию</h1>
+                    <h1 class="m-0">Редактирование категории {{$category->title}}</h1>
                 </div><!-- /.col -->
                 <div class="col-12 col-md-6">
-                    <form action="{{route('admin.category.store')}}" method="POST">
+                    <form action="{{route('admin.category.update',$category->id)}}" method="POST">
                         @csrf
+                        @method('patch')
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="category-name">Название категории</label>
                                 <input type="text"
+                                       value="{{$category->title}}"
                                        name="title"
                                        class="form-control"
                                        id="category-name"
@@ -29,7 +31,7 @@
                                 <label class="form-check-label" for="category-published">Опубликовано</label>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Добавить</button>
+                                <button type="submit" class="btn btn-primary">Обновить</button>
                             </div>
                         </div>
                     </form>

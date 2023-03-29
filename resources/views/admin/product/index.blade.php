@@ -7,10 +7,10 @@
         <div class="container-fluid">
             <div class="row mb-5">
                 <div class="col-sm-6 mb-4">
-                    <h1 class="m-0">Категории</h1>
+                    <h1 class="m-0">Товары</h1>
                 </div><!-- /.col -->
                 <div class="col-12">
-                    <a href="{{route('admin.category.create')}}" class="btn btn-primary">Добавить</a>
+                    <a href="{{route('admin.product.create')}}" class="btn btn-primary">Добавить</a>
                 </div>
             </div>
             <div class="row">
@@ -28,12 +28,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($categories as $category)
+                                @foreach($products as $product)
                                     <tr>
-                                        <td>{{$category->id}}</td>
-                                        <td><a href="{{route('admin.category.show',$category->id)}}">{{$category->title}}</a></td>
-                                        <td>{{($category->published == 1)?'Опубликовано':'Неопубликовано'}}</td>
-                                        <td><span class="tag tag-success">{{$category->created_at}}</span></td>
+                                        <td>{{$product->id}}</td>
+                                        <td><a href="{{route('admin.product.show',$product->id)}}">{{$product->title}}</a></td>
+                                        <td>{{($product->published == 1)?'Опубликовано':'Неопубликовано'}}</td>
+                                        <td><span class="tag tag-success">{{$product->created_at}}</span></td>
                                     </tr>
                                 @endforeach
 

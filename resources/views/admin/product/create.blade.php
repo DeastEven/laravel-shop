@@ -10,7 +10,7 @@
                     <h1 class="m-0">Добавить категорию</h1>
                 </div><!-- /.col -->
                 <div class="col-12 col-md-6">
-                    <form action="{{route('admin.category.store')}}" method="POST">
+                    <form action="{{route('admin.product.store')}}" method="POST">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
