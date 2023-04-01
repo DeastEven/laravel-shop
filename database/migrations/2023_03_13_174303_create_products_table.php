@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('price')->nullable();
             $table->string('old_price')->nullable();
+            $table->text('content')->nullable();
             $table->timestamps();
 
             $table->softDeletes();

@@ -9,16 +9,16 @@
                 <div class="col-12">
                     <h1 class="m-0">Редактирование товара {{$product->title}}</h1>
                 </div><!-- /.col -->
-                <div class="col-12 col-md-6">
+                <div class="col-12 ">
                     <form action="{{route('admin.product.update',$product->id)}}" method="POST">
                         @csrf
                         @method('patch')
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="category-name">Название категории</label>
+                            <div class="form-group w-50 mb-4">
+                                <label for="category-name">Название товара</label>
                                 <input type="text"
-                                       value="{{$product->title}}"
                                        name="title"
+                                       value="{{$product->title}}"
                                        class="form-control"
                                        id="category-name"
                                        placeholder="Название категории">
@@ -26,6 +26,26 @@
                                 <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
+                            <div class="form-group w-50">
+                                <label>Выберите категорию</label>
+                                <select name="category_id"
+                                        class="form-control select2"
+                                        style="width: 100%;">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}"
+                                                {{$category->id == $product->category_id ? 'selected' : ''}}>
+                                            {{$category->title}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="summernote">Контент</label>
+                                <form method="post">
+                                    <textarea id="summernote"  name="content">{{$product->content}}</textarea>
+                                </form>
+                            </div>
+
                             <div class="form-check">
                                 <input type="checkbox" name="published" class="form-check-input" id="category-published">
                                 <label class="form-check-label" for="category-published">Опубликовано</label>

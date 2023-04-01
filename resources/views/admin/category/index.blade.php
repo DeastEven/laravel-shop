@@ -31,7 +31,7 @@
                                 @foreach($categories as $category)
                                     <tr>
                                         <td>{{$category->id}}</td>
-                                        <td><a href="{{route('admin.category.show',$category->id)}}">{{$category->title}}</a></td>
+                                        <td><a href="{{route('admin.category.edit',$category->id)}}">{{$category->title}}</a></td>
                                         <td>{{($category->published == 1)?'Опубликовано':'Неопубликовано'}}</td>
                                         <td><span class="tag tag-success">{{$category->created_at}}</span></td>
                                     </tr>

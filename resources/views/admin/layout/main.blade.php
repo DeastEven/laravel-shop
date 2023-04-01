@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('public/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{asset('public/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('public/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/dist/css/custom.css')}}">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -59,11 +61,14 @@
 <!-- overlayScrollbars -->
 <script src="{{asset('public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
+<script src="{{asset('public/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
 <script src="{{asset('public/dist/js/adminlte.js')}}"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
 <script src="{{asset('public/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
+<script src="{{asset('public/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script src="{{asset('public/plugins/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('public/plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
 <script src="{{asset('public/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
@@ -73,5 +78,18 @@
 <!-- AdminLTE for demo purposes -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('public/dist/js/pages/dashboard2.js')}}"></script>
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            height:200,
+            minHeight:200,
+            maxHeight:300,
+        }
+        );
+    });
+    $(function () {
+        bsCustomFileInput.init();
+    });
+</script>
 </body>
 </html>
