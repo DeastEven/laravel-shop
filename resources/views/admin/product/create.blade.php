@@ -5,12 +5,21 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-12">
+            <div class="row mb-2 justify-content-between">
+                <div class="col-auto">
                     <h1 class="m-0">Добавить товар</h1>
-                </div><!-- /.col -->
+                </div>
+                <div class="col-auto">
+                    <div class="row">
+                        <div class="col-auto">
+                            <a id="save-form-btn" type="submit" class="btn btn-primary">Сохранить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12 ">
-                    <form action="{{route('admin.product.store')}}" method="POST" enctype="multipart/form-data">
+                    <form id="create-form" action="{{route('admin.product.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group w-50 mb-4">
@@ -37,20 +46,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="summernote">Контент</label>
-                                    <textarea id="summernote"  name="content">{{old('content')}}</textarea>
+                                <textarea id="summernote"  name="content">{{old('content')}}</textarea>
                             </div>
 
                             <div class="form-check">
                                 <input type="checkbox" name="published" class="form-check-input" id="category-published">
                                 <label class="form-check-label" for="category-published">Опубликовано</label>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-none">
                                 <button type="submit" class="btn btn-primary">Добавить</button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div><!-- /.row -->
+            </div>
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->

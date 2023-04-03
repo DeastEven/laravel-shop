@@ -10,16 +10,23 @@
                     <h1 class="mb-2">{{$category->title}}</h1>
                 </div><!-- /.col -->
                 <div class="col-auto">
-                    <form action="{{route('admin.category.delete',$category->id)}}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="btn btn-danger">Удалить</button>
-                    </form>
+                    <div class="row">
+                        <div class="col-auto">
+                            <a id="save-form-btn" type="submit" class="btn btn-primary">Сохранить</a>
+                        </div>
+                        <div class="col-auto">
+                            <form action="{{route('admin.category.delete',$category->id)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger">Удалить</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 ">
-                    <form action="{{route('admin.category.update',$category->id)}}" method="POST" enctype="multipart/form-data">
+                    <form id="create-form" action="{{route('admin.category.update',$category->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('patch')
                         <div class="card-body">
@@ -139,7 +146,7 @@
                                 <textarea id="summernote"  name="content">{{old('content', $category->content)}}</textarea>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group d-none">
                                 <button type="submit" class="btn btn-primary">Обновить</button>
                             </div>
                         </div>

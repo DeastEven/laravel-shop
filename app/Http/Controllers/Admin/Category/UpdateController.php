@@ -15,8 +15,9 @@ class UpdateController extends Controller
         if( array_key_exists('preview_image',$data)){
             $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
         }
+        $products = $category->products;
         $category->update($data);
 
-        return view('admin.category.show',compact('category'));
+        return view('admin.category.edit',compact('category','products'));
     }
 }

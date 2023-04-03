@@ -77,7 +77,8 @@
 
 <!-- AdminLTE for demo purposes -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('public/dist/js/pages/dashboard2.js')}}"></script>
+{{--<script src="{{asset('public/dist/js/pages/dashboard2.js')}}"></script>--}}
+<script src="{{asset('public/dist/js/custom.js')}}"></script>
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({

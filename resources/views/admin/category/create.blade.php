@@ -5,12 +5,22 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-12">
+            <div class="row mb-2 justify-content-between">
+                <div class="col-auto">
                     <h1 class="m-0">Добавить категорию</h1>
-                </div><!-- /.col -->
+                </div>
+                <div class="col-auto">
+                    <div class="row">
+                        <div class="col-auto">
+                            <a id="save-form-btn" type="submit" class="btn btn-primary">Сохранить</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-12">
-                    <form action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
+                    <form id="create-form" action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group mb-4 w-50">
@@ -85,13 +95,15 @@
                                     <textarea id="summernote"  name="content">{{old('content')}}</textarea>
                                 </form>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-none">
                                 <button type="submit" class="btn btn-primary">Добавить</button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div><!-- /.row -->
+            </div>
+
+
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->

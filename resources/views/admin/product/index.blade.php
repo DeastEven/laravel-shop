@@ -31,7 +31,7 @@
                                 @foreach($products as $product)
                                     <tr>
                                         <td>{{$product->id}}</td>
-                                        <td><a href="{{route('admin.product.show',$product->id)}}">{{$product->title}}</a></td>
+                                        <td><a href="{{route('admin.product.edit',$product->id)}}">{{$product->title}}</a></td>
                                         <td>{{($product->published == 1)?'Опубликовано':'Неопубликовано'}}</td>
                                         <td><span class="tag tag-success">{{$product->created_at}}</span></td>
                                     </tr>
