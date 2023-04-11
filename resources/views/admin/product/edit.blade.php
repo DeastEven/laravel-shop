@@ -15,7 +15,7 @@
                             <a id="save-form-btn" type="submit" class="btn btn-primary">Сохранить</a>
                         </div>
                         <div class="col-auto">
-                            <form id="create-form" action="{{route('admin.product.delete',$product->id)}}" method="POST">
+                            <form action="{{route('admin.product.delete',$product->id)}}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">Удалить</button>

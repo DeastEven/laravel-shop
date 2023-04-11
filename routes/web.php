@@ -17,7 +17,7 @@ Route::get('/', function () {
 });
 
 //admin
-Route::group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],function (){
+Route::group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin','middleware'=>['auth','admin']],function (){
     Route::get('/','IndexController')->name('admin.index');
 
     Route::group(['namespace'=>'Category','prefix'=>'category'],function (){
@@ -38,4 +38,18 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','prefix'=>'admin'],funct
         Route::patch('/{product}','UpdateController')->name('admin.product.update');
         Route::delete('/{product}','DeleteController')->name('admin.product.delete');
     });
+    Route::group(['namespace'=>'User','prefix'=>'user'],function (){
+        Route::get('/','IndexController')->name('admin.user.index');
+        Route::get('/create','CreateController')->name('admin.user.create');
+        Route::post('/','StoreController')->name('admin.user.store');
+        Route::get('/{user}','ShowController')->name('admin.user.show');
+        Route::get('/{user}/edit','EditController')->name('admin.user.edit');
+        Route::patch('/{user}','UpdateController')->name('admin.user.update');
+        Route::delete('/{user}','DeleteController')->name('admin.user.delete');
+    });
 });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
